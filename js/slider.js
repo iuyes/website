@@ -63,13 +63,12 @@
 				d.index = 0;
 			};
 			move();
+			autotime = setTimeout(automove, d.time + d.movetime);
 		};
 		if (d.time == 0) {
 			d.time = 1000000000;
 		};
-		var autotime = setInterval(automove, d.time);
-		clearInterval(autotime);
-		autotime = setInterval(automove, d.time);
+		var autotime = setTimeout(automove, d.time + d.movetime);
 		/*鼠标切换*/
 		$(d.num).mouseenter(function() {
 			if (!$(this).hasClass('cur')) {
@@ -78,14 +77,18 @@
 			};
 		});
 		/*鼠标悬浮停止切换*/
-		$(d.slider).hover(function() {
-			clearInterval(autotime);
-		}, function() {
-			autotime = setInterval(automove, d.time);
+		$(d.slider).mouseenter(function() {
+			clearTimeout(autotime);
+		}).mouseleave(function() {
+			autotime = setTimeout(automove, d.time + d.movetime);
 		});
 		/*点击按钮切换*/
 		$(d.next).click(function() {
-			automove();
+			d.index++;
+			if (d.index >= $(d.num).length) {
+				d.index = 0;
+			};
+			move();
 			return false;
 		});
 		$(d.prev).click(function() {
@@ -96,16 +99,5 @@
 			move();
 			return false;
 		});
-		$(d.prev).mouseenter(function() {
-			clearInterval(autotime);
-		}).mouseleave(function() {
-			autotime = setInterval(automove, d.time);
-		});
-		$(d.next).mouseenter(function() {
-			clearInterval(autotime);
-		}).mouseleave(function() {
-			autotime = setInterval(automove, d.time);
-		});
 	};
-
 })(jQuery); 

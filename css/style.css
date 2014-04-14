@@ -179,7 +179,8 @@ html, body {
 .nav .sub-menu{
 	display: none;
 	position: absolute;
-	top: 40px;
+	top: 30px;
+	padding-top:10px;
 	overflow: hidden
 }
 .nav .sub-menu li{
