@@ -169,8 +169,14 @@ html, body {
     line-height: 40px;
     color: #C72135;
 }
+.cont h3{
+    font-size: 1.4em;
+    line-height: 40px;
+    font-weight: normal;
+}
 .cont .row{
     overflow: hidden;
+    margin-bottom: 20px;
 }
 .cont .span6{
     float: left;
@@ -182,6 +188,10 @@ html, body {
 }
 .cont p{
     margin-bottom: 20px;
+}
+.cont img{
+    width: 100%;
+    height: auto;
 }
 /*E cont*/
 /*E content*/
