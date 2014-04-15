@@ -11,6 +11,7 @@ html, body {
 /*S header*/
 .header{
 	height: 7%;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
 }
 .header h1{
 	padding: 5px 0 5px 40px;
@@ -127,6 +128,63 @@ html, body {
 	right:10px;
 }
 /*E slider*/
+/*S content*/
+.content{
+    margin: 30px auto 0;
+    width: 960px;    
+    overflow: hidden;
+}
+/*S aside*/
+.aside{
+    float: left;
+    width: 220px;
+}
+.aside li{
+    border-bottom: 1px solid #e6e6e6;
+}
+.aside a{
+    margin: 0 20px 0 40px;
+    height: 36px;
+    display: block;
+    font: 13px/36px 微软雅黑;
+    color: #333;
+    text-decoration: none;
+}
+.aside a:hover{
+    color: #c72135;
+}
+.aside a.cur{    
+    background: url(img/icon_arrow.png) no-repeat 100% 50%;
+    color: #c72135;
+}
+/*E aside*/
+/*S cont*/
+.cont{
+    margin-left: 260px;
+    padding-bottom: 50px;
+    font: 13px/20px 微软雅黑;
+}
+.cont h2{
+    font-size: 18px;
+    line-height: 40px;
+    color: #C72135;
+}
+.cont .row{
+    overflow: hidden;
+}
+.cont .span6{
+    float: left;
+    width: 47.5%;
+    margin-left: 5%;
+}
+.cont .span6:first-child{
+    margin-left: 0;
+}
+.cont p{
+    margin-bottom: 20px;
+}
+/*E cont*/
+/*E content*/
 /*S footer*/
 .footer{
 	position:fixed;
@@ -150,6 +208,8 @@ html, body {
 	height: 39px;
 	padding: 0 10%;
 	border-bottom: 1px solid #e3e3e3;
+	border-top: 1px solid #e3e3e3;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 .nav a{
 	text-decoration: none;
