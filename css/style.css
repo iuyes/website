@@ -46,9 +46,8 @@ html, body {
 }
 .slider .pic img{
 	position: absolute;
-	left: 50%;
 	top: 50%;
-	margin-left: -800px;
+    width: 100%;
 	margin-top: -500px;
 }
 .slider .info{

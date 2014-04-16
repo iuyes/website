@@ -27,7 +27,7 @@
 			<div class="slider js-slider">
 				<ul class="pic js-pic">
 					<li>
-						<img src="img/002.jpg">
+						<img src="img/001.jpg">
 						<div class="info js-info cur">
 							<a href="#" class="more-info">更多</a>
 							<dl>
@@ -192,6 +192,10 @@
 				afterSwitchEvent: function (index, $this, $pic) {
 					$(".info", $this).fadeIn("slow");
 				}
+			});
+			
+			$(".js-pic img").load(function () {
+				$(this).css("margin-top", "-" + ($(this).height() + 40) / 2 + "px");
 			});
 		</script>
 		<script src="js/footer.js"></script>
