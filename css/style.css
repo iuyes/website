@@ -33,40 +33,34 @@ html, body {
 	height: 93%;	
 }
 .slider .pic{
+	position: absolute;
+	left: 0px;
 	height: 100%;
-	overflow: hidden;
 }
 .slider .pic li{
 	float: left;
 	position: relative;
-	width: 100%;
 	height: 100%;
-	vertical-align: bottom;
-	overflow: hidden;
 }
 .slider .pic img{
 	position: absolute;
 	top: 50%;
-    width: 100%;
 	margin-top: -500px;
+	height: 1000px;
+	width: auto;
 }
 .slider .info{
-	display: none;
 	position: absolute;
 	right: 30px;
 	top: 30px;
 	height: auto;
 	max-height: 80%;
 	min-height: 60px;
-	min-width: 420px;
-	width: 40%;
+	width: 500px;
 	color: #fff;
 	background: url(img/slider-info.png);
 	font: 14px/1.5 微软雅黑;
 	overflow: auto;
-}
-.slider .info.cur{
-	display: block;
 }
 .slider .info .more-info{
 	display: block;
@@ -91,6 +85,7 @@ html, body {
 	color: #ccc;
 }
 .slider .num{
+	display: none;
 	position: absolute;
 	right: 80px;
 	bottom: 50px;
@@ -110,6 +105,7 @@ html, body {
 	background:#fff;	
 }
 .slider-prev, .slider-next{
+	display: none;
 	width: 24px;
 	height: 24px;
 	position: absolute;	
