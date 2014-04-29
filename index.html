@@ -26,9 +26,9 @@
 			</div>
 			<div class="slider js-slider">
 				<ul class="pic js-pic">
-					<li>
+					<li class="cur">
 						<img src="img/001.jpg">
-						<div class="info js-info cur">
+						<div class="info js-info">
 							<a href="#" class="more-info">更多</a>
 							<dl>
 								<dt>美国威尔逊室内建筑设计公司<br>成功加盟上海现代建筑设计（集团）有限公司！</dt>
@@ -172,30 +172,62 @@
 				</div>
 				<p>上海现代设计（集团）有限公司版权所有 沪ICP备09024479</p>
 			</div>
-		</div>
-		
+		</div>	
 		<script src="js/jquery-1.8.2.min.js"></script>
-		<script src="js/slider.js"></script>
 		<script>
-			$().slider({
-				slider: ".js-slider",
-				num: ".js-num li",
-				pic: ".js-pic",
-				direction: "left",
-				prev: ".js-slider-prev",
-				next: ".js-slider-next",
-				time: 3000,
-				movetime: 600,
-				beforeSwitchEvent: function (index, $this, $pic) {
-					$(".info", $pic).hide(0);
-				},
-				afterSwitchEvent: function (index, $this, $pic) {
-					$(".info", $this).fadeIn("slow");
-				}
-			});
-			
-			$(".js-pic img").load(function () {
-				$(this).css("margin-top", "-" + ($(this).height() + 40) / 2 + "px");
+			$(function() {
+				$(window).load(function () {
+					var
+						$pic = $(".js-pic"),
+						$lis = $pic.find("li"),
+						len = $lis.length,
+						curIndex = 0;
+					function toggle(index, curIndex) {
+						$lis.eq(curIndex).fadeOut("slow", function () {
+							$lis.eq(index).find("img").css("left", 0);
+							$lis.eq(index).fadeIn(function () {
+								move(index);
+							});
+						});
+					}
+					function fixIndex(index) {
+						return (index + len) % len;
+					}
+					function move(index) {
+						var
+							$li = $lis.eq(index),
+							liWidth = $li.width(),
+							$img = $li.find("img"),
+							imgWidth = $img.width(),
+							id;
+						
+						function loop() {
+							var
+								left = parseInt($img.css("left"), 10);
+							
+							if (left  <= liWidth - imgWidth) {
+								curIndex = fixIndex(curIndex + 1);
+								window.setTimeout(function () {
+									toggle(curIndex, fixIndex(curIndex - 1));
+								}, 1000);								
+								return 0;
+							}
+							left = left - 2;	
+							$img.css("left", left + "px");
+							id = window.setTimeout(loop, 30);
+						}
+						
+						loop();
+						
+						$pic.hover(function () {
+							window.clearTimeout(id);
+						}, function () {
+							loop();
+						});
+					}
+					
+					move(curIndex);
+				});
 			});
 		</script>
 		<script src="js/footer.js"></script>
